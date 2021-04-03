@@ -20,7 +20,7 @@ const badgeEl = document.querySelector("header .badges");
 window.addEventListener(
   "scroll",
   _.throttle(function () {
-    console.log("scroll!");
+    //console.log("scroll!");
     if (window.scrollY > 500) {
       gsap.to(badgeEl, 0.6, {
         opacity: 0,
