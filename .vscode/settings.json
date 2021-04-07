@@ -4,8 +4,8 @@
     "liveServer.settings.CustomBrowser": "chrome",
     "liveServer.settings.https": {
         "enable": true,
-        "cert": "D:/Program/workspace/htmlcssjs/starbucks/localhost.pem",
-        "key": "D:/Program/workspace/htmlcssjs/starbucks/localhost.key",
+        "cert": "D:/Program/workspace/htmlcssjs/starbucks/dingsam.pem",
+        "key": "D:/Program/workspace/htmlcssjs/starbucks/dingsam.key",
         "passphrase": "1234"
     }
 }

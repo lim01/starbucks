@@ -1,63 +1,37 @@
 <!DOCTYPE html>
- 
-<html>
+<html lang="ko">
 <head>
-    <meta charset="utf-8" />
-    <title></title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
 <body>
-  <button onclick="notify()">Notify</button>
-
-  <a href="#" id="requestPermission">권한요청</a>
-  <a href="#" id="showNotification">알림표시</a>
+  <button id="enable">알림 허용</button>  
 
   <script>
-    function notify() {
-      alert("hi~");
-      if (Notification.permission !== "denied") {
-        Notification.requestPermission(permission => {
-          if (permission === "granted") {
-            new Notification("Hi, Notification");
-          } else {
-            alert('Notification denied');
-          }
-        });
+    const btn = document.querySelector('#enable');
+    btn.addEventListener('click', () => {
+      //alert('Hi');
+      console.log('button clicked');
+      notify('notify');
+    });
+    
+    // 알림 띄우기
+    function notify(msg) {
+      console.log('function notify');
+      var options = {
+            body: msg
       }
+        
+      // 데스크탑 알림 요청
+      var notification = new Notification("DororongJu", options);
+      
+      // 3초뒤 알람 닫기
+      setTimeout(function(){
+          notification.close();
+      }, 3000);
     }
-
-    var requestPermission = document.querySelector('#requestPermission')
-    var showNotification = document.querySelector('#showNotification')
-
-    // 알림 권한 요청
-    requestPermission.addEventListener('click', () => {
-      if (!window.Notification) {
-        alert('지원하지 않음')
-      } else {
-        Notification.requestPermission().then(p => {
-          if (p == 'denied') {
-            alert('알림을 허용하지 않았습니다.')
-          } else if (p == 'granted') {
-            alert('알림을 허용했습니다.')
-          }
-        })
-      }
-    })
-
-    // 알림 표시
-    showNotification.addEventListener('click', () => {
-      if (Notification.permission!=='default') {
-        let notify = new Notification('알림이 왔습니다.', {
-          'body': '안녕하세요. \n알림을 성공적으로 수신했습니다.',
-          'icon': 'https://tistory3.daumcdn.net/tistory/2979840/attach/6e5d2d16ab6a49628dfe1f4c164e38a0',
-          'tag': '메시지'
-        })
-        notify.onclick = function(){
-          alert(this.tag)
-        }
-      } else {
-        alert('알림을 허용해 주세요.')
-      }
-    })
-  </script>
+  </script>    
 </body>
 </html>
