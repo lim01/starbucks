@@ -14,23 +14,35 @@
     btn.addEventListener('click', () => {
       //alert('Hi');
       console.log('button clicked');
-      notify('메시지 알림 테스트');
+      notify('메시지 알림 테스트1\n메시지 알림 테스트2\n메시지 알림 테스트3\n메시지 알림 테스트4');
     });
     
     // 알림 띄우기
     function notify(msg) {
       console.log('function notify');
       var options = {
-            body: msg
+            body: msg,
+            //icon: "https://flamboyant-swanson-e904dc.netlify.app/favicon.ico"
+            icon: "/favicon.ico",
+            url: "https://mtbs.toursoft.co.kr/erp/main/main",
+            setOngoing: true,
+            applicationIconBadgeNumber: 1
       }
-        
+
       // 데스크탑 알림 요청
       var notification = new Notification("MclickSyttem", options);
-      
-      // 3초뒤 알람 닫기
-      setTimeout(function(){
-          notification.close();
-      }, 3000);
+ 
+      /*
+      notification.onclick = function(event) {
+        event.preventDefault(); // prevent the browser from focusing the Notification's tab
+        window.open('http://www.mozilla.org', '_blank');
+      }
+      */
+
+      // 5초뒤 알람 닫기
+      //setTimeout(function(){
+      //    notification.close();
+      //}, 5000);
     }
   </script>    
 </body>
