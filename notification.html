@@ -24,9 +24,23 @@
             body: msg,
             //icon: "https://flamboyant-swanson-e904dc.netlify.app/favicon.ico"
             icon: "/favicon.ico",
-            url: "https://mtbs.toursoft.co.kr/erp/main/main",
-            setOngoing: true,
-            applicationIconBadgeNumber: 1
+            badge: "/push-badge-72x72.png",
+            image: "/cat.png",
+            //url: "https://mtbs.toursoft.co.kr/erp/main/main",
+            //setOngoing: true,
+            //applicationIconBadgeNumber: 1
+            actions: [
+              { 
+                action: 'yes-action',
+                title: 'yes',
+                icon: '/yes.png'
+              }
+              { 
+                action: 'no-action',
+                title: 'no',
+                icon: '/no.png'
+              }
+            ]
       }
 
       // 데스크탑 알림 요청
